@@ -1,0 +1,38 @@
+baseURL = 'https://brian-squared.github.io/www'
+languageCode = 'en-gb'
+title = 'Brian²'
+theme = 'diary'
+enableEmoji = true
+copyright = "Brian Corteil and Brian Starkey"
+
+[params]
+subtitle = 'Pi Wars 2024'
+enableOpenGraph = true
+enableTwitterCards = true
+favicon = "logo.png"
+
+[taxonomies]
+   tag = "tags"
+
+[permalinks]
+posts = "/:year/:month/:title/"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    tabWidth = 4
+
+[[menu.main]]
+url = "/posts"
+name = "All Posts"
+weight = 1
+[[menu.main]]
+url = "/tags"
+name = "Tags"
+weight = 3
