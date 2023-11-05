@@ -1,14 +1,20 @@
 ---
-title: "Omniwheels - Holonomic Fun"
+title: "Mecanum wheels - Holonomic Fun"
 date: 2023-11-05T15:44:35+00:00
 author: "Brian S"
 tags: ["Pi Wars 2024"]
-description: "An overview of how to drive Omniwheels to do cool things"
+description: "An overview of how to drive mecanum wheels to do cool things"
+aliases: ["/2023/11/omniwheels-holonomic-fun/"]
 ---
+
+> This post has been updated to change "omniwheel" for "mecanum wheel",
+> specifically. `lwr20` on the Pi Wars Discord pointed out that omniwheel
+> is a different type of omni-directional-capable wheel (I had always thought
+> omniwheel is a generic term, with mecanum wheel being a particular variety).
 
 Our robot for
 [Pi Wars 2024](https://piwars.org/2024-disaster-zone/)
-is using ["mecanum" or "Omniwheels"](https://en.wikipedia.org/wiki/Mecanum_wheel).
+is using ["mecanum" wheels](https://en.wikipedia.org/wiki/Mecanum_wheel).
 These neat little devices are wheels which have angled rollers in place of a
 normal tyre. This means that when the wheel turns, instead of exerting a force
 parallel to the wheel (like a normal wheel), it exerts a force which is parallel
@@ -16,7 +22,7 @@ to the _rollers_ on the wheel - at an angle. By having several of these,
 and controlling the speed of each one individually, the robot can move in strange
 and interesting ways.
 
-# Basics of Omniwheels
+# Basics of mecanum wheels
 
 When driving the wheels in left and right pairs, the movement is
 ["tank steer"](https://en.wikipedia.org/wiki/Tank_steering_systems)
@@ -24,7 +30,7 @@ style which many people will be familiar with. Here, the angled force from each
 wheel is counteracted by one of the others, meaning there's no net sideways
 force and the robot moves as you'd expect for a set of "normal" wheels:
 
-!["Tank steering" with omniwheels](images/tanksteer.png)
+!["Tank steering" with mecanum wheels](images/tanksteer.png)
 
 On the left of the diagram above, all four wheels are being driven "forwards".
 The red arrows represent the force exerted on the ground by the wheel. Rather
@@ -44,7 +50,7 @@ anticlockwise.
 More interesting things start to happen when we don't drive the wheels in
 left/right pairs. Here's two more examples:
 
-!["Strafing" with omniwheels](images/strafing.png)
+!["Strafing" with mecanum wheels](images/strafing.png)
 
 Driving just two of the wheels on opposite corners results in diagonal movement.
 Even more fun is driving one side "outwards" and one side "inwards" - here,
@@ -62,12 +68,12 @@ what direction it's currently facing - that capability has a fancy name:
 > total number of degrees of freedom.
 
 The robot has 3 degrees of freedom (considering only movement on a surface):
-forwards/back, left/right, and rotation. The omniwheels allow us to control
+forwards/back, left/right, and rotation. The mecanum wheels allow us to control
 all three, no matter what direction the robot is facing.
 
 # Controlling the wheels
 
-To make use of the holonomic capabilities of the omniwheels, you have to be
+To make use of the holonomic capabilities of the mecanum wheels, you have to be
 able to drive each wheel individually, independent of all of the others. So we
 clearly need a motor per wheel (which is pretty common for 4-wheeled Pi Wars
 robots anyway), but we also need a dedicated motor driver for each motor -
@@ -77,7 +83,7 @@ them in pairs.
 Thankfully, around the time we started thinking about building a Pi Wars entry,
 the pocket-money pirates at Pimoroni released their
 [Motor 2040](https://shop.pimoroni.com/products/motor-2040)
-driver board. This is ideally suited to a 4-motor omniwheel robot. It's got
+driver board. This is ideally suited to a 4-motor mecanum wheel robot. It's got
 4 motor drivers, and can be easily used with their
 [motors with encoders](https://shop.pimoroni.com/products/micro-metal-gearmotor-with-micro-metal-motor-encoder),
 using the on-board RP2040 to provide accurate speed control of each motor.
@@ -160,7 +166,7 @@ Now I can command the robot to move in any direction at any "real world" speed
 
 # World-referenced control
 
-There's one more step in my omniwheel control system: Controlling the robot
+There's one more step in my mecanum wheel control system: Controlling the robot
 relative to its orientation _in the world_, rather then relative to the robot.
 
 First let's look at what I'll call "normal control" mode. Here, I've mapped the
