@@ -22,7 +22,9 @@ The arm is 3D printed and uses serial servos from Waveshare, the serial servo co
 
 ## NERF launcher
 The launcher is built around a Worker NERF gun upgrade kit, the breech and magazine are 3D printed. Power for the motors is provided from a 3 cell LiPo battery, switched by an electronic switch controlled via i2c.  The launcher has two servos, the large servo changes the elevation, and the second servo moves the breech push rod in and out. The push rod holds back the next dart from entering the breech, when the fire button is pressed the push rod moves to the back of the breech block allowing the NERF dart to move into alinement with the fly wheels and then moves forward to push the dart in to the fly wheels to be launched. On the front of the barrel is mounted a laser pointer which has been calibrated to hit a playing card at 150 cm.
-Camera and other sensors.
+
+
+## Camera and other sensors.
 Scorpion has been outfitted with a Raspberry Pi Camera 2. The camera is fitted above the ToF (Time of Flight) 8 x 8 sensor or can be mounted the end of the arm, this allows the camera to be positioned in the best place for the current challenge. The ToF sensor helps the grabber pick up drums and is used to detect walls or bumps. Finally A BNO055 IMU is mounted under the Raspberry Pi and is used to help maintain a bearing and let Scorpion know where it is pointing,
 
 ## Motor control, wheels 
